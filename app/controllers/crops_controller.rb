@@ -13,4 +13,18 @@ class CropsController < ApplicationController
   def new
     @crop = Crop.new
   end
+
+  def create
+    @crop = Crop.new(crop_params)
+    if @crop.save
+      redirect_to root_path
+      flash[:alert] = '作物を登録しました'
+    else
+      render :new
+      flash[:alert] = '作物を登録できませんでした'
+    end
+  end
+  def crop_params
+    params.require(:crop).permit(:name).merge(user_id: current_user.id)
+  end
 end
