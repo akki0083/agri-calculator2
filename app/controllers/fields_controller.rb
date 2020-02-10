@@ -16,6 +16,8 @@ class FieldsController < ApplicationController
     end
   end
 
+  private
+
   def field_params
     params.require(:field).permit(:name, :surface).merge(user_id: current_user.id, crop_id: params[:crop_id])
   end
