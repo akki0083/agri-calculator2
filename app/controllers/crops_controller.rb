@@ -10,4 +10,7 @@ class CropsController < ApplicationController
     @fields = Field.where(crop_id: params[:id])
   end
 
+  def new
+    @crop = Crop.new
+  end
 end
