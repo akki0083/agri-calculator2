@@ -24,7 +24,11 @@ class CropsController < ApplicationController
       flash[:alert] = '作物を登録できませんでした'
     end
   end
+
+  private
+
   def crop_params
     params.require(:crop).permit(:name).merge(user_id: current_user.id)
   end
+
 end
