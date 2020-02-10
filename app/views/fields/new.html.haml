@@ -1,0 +1,5 @@
+圃場登録ページ
+= form_with model: [@crop, @field] do |f|
+  = f.text_field :name, class: '', placeholder: "圃場名(必須)"
+  = f.number_field :surface, step: "0.01", class: '', placeholder: "面積［㎡］(必須)"
+  = f.submit "追加する", class: ''

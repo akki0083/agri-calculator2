@@ -1,0 +1,19 @@
+- if user_signed_in?
+  = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__right--btn"
+  = link_to "ユーザー情報編集", edit_user_registration_path, class: ''
+- else
+  = link_to "ログイン", new_user_session_path, class: "header__right--btn"
+  = link_to "新規登録", new_user_registration_path, class: "header__right--btn"
+
+%br
+作物一覧
+= link_to 
+- if user_signed_in?
+  - if @crops.present?
+    - @crops.each do |crop|
+      - if crop.user_id == current_user.id
+        %br
+        = link_to crop_path(crop) do
+          = crop.name
+  %br
+  = link_to "作物追加", new_crop_path

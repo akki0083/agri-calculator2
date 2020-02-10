@@ -1,0 +1,5 @@
+作物登録ページ
+= form_with model: @crop do |f|
+  = f.text_field :name, class: '', placeholder: "作物名(必須)"
+  = f.submit "追加する", class: ''
+
